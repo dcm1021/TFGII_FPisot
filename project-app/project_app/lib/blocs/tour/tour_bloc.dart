@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -287,11 +288,5 @@ class TourBloc extends Bloc<TourEvent, TourState> {
       log.e('Error al cargar el tour desde Firestore: $e');
       emit(state.copyWith(isLoading: false, hasError: true));
     }
-  } catch (e) {
-    log.e('Error al cargar el tour desde Firestore: $e');
-    emit(state.copyWith(isLoading: false, hasError: true));
   }
-}
-
-
 }
